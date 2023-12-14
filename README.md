@@ -15,7 +15,7 @@ chmod u+x tools/make-n-run.sh
 
 |   os   |   state | 
 |---    |:-:    |
-|   wsl   |   &#x2611   |
-|   macos   |   &#x2611  |   
-|   msys2   |   &#x2611  |
-|   linux   |   &#x2611  |
+|   wsl   |   &#x2611;   |
+|   macos   |   &#x2611;  |   
+|   msys2   |   &#x2611;  |
+|   linux   |   &#x2611;  |
