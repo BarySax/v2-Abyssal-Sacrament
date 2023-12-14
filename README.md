@@ -5,12 +5,17 @@ Our two main inspiration for this project are DnD and Warhammer.
 
 ## to compile and run
 
-On windows with msys2:
+all os with a bash command line
 ```bash
-pamcan -S gcc
-pacman -S make
-cd c:/Users/USER_NAME//Abyssal-sacrament
-mkdir build
-make
-./build/main.exe
+chmod u+x tools/make-n-run.sh
+./tools/make-n-run
 ```
+
+# suported bash
+
+|   os   |   state | 
+|---    |:-:    |
+|   wsl   |   &#x2611   |
+|   macos   |   &#x2611  |   
+|   msys2   |   &#x2611  |
+|   linux   |   &#x2611  |
