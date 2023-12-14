@@ -5,7 +5,7 @@ Our two main inspiration for this project are DnD and Warhammer.
 
 ## to compile and run
 
-On windows whith msys2:
+On windows with msys2:
 ```bash
 pamcan -S gcc
 pacman -S make
