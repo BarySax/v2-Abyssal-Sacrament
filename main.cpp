@@ -15,6 +15,6 @@ int main()
     player myPlayer;
     myPlayer.name = createPlayer();
     myPlayer.origin = setPlayerOrigin();
-    
+    cout << "bonjour " << myPlayer.name << "\n";
     return 0;
 }
