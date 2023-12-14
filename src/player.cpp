@@ -20,14 +20,16 @@ string setPlayerOrigin() {
 
     if (origin == "1") {
         origin = "Sans dessein";
+        cout << "dans ce monde froid, vous n'êtes rien\n";
     } else if (origin == "2") {
         origin = "Noble";
+        cout << "vous êtes de toute évidence pure\n";
     } else if (origin == "3") {
         origin = "Pieux";
+        cout << "de toute évidence, votre vie n'a été que de servir votre saint patron\n";
     } else {
         cout << "Invalid origin\n";
         setPlayerOrigin();
     }
-
     return origin;
 }
