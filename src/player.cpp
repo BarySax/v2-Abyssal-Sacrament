@@ -7,27 +7,27 @@ using namespace std;
 
 string createPlayer() {
     string name;
-    cout << "entrer votre nom: ";
+    cout << "Qui êtes vous: ";
     cin >> name;
 
     return name;
 }
 
-string setPlayerType() {
-    string type;
-    cout << "entrer votre type parmis\n1-chevalier\n2-sans dessin\n3-noble:\n";
-    cin >> type;
+string setPlayerOrigin() {
+    string origin;
+    cout << "Q\n1-Sans dessein\n2-Noble\n3-Pieux:\n";
+    cin >> origin;
 
-    if (type == "1") {
-        type = "chevalier";
-    } else if (type == "2") {
-        type = "sans dessin";
-    } else if (type == "3") {
-        type = "noble";
+    if (origin == "1") {
+        origin = "Sans dessein";
+    } else if (origin == "2") {
+        origin = "Noble";
+    } else if (origin == "3") {
+        origin = "Pieux";
     } else {
-        cout << "Invalid type\n";
-        setPlayerType();
+        cout << "Invalid origin\n";
+        setPlayerOrigin();
     }
 
-    return type;
+    return origin;
 }
