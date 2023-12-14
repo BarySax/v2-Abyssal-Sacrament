@@ -7,16 +7,14 @@ struct player
     int hp = 100;
     int xp = 0;
     string name;
-    string type;
+    string origin;
 };
 
 int main() 
 {
     player myPlayer;
     myPlayer.name = createPlayer();
-    myPlayer.type = setPlayerType();
-    
-
-    cout << "Bonjour " << myPlayer.name << " le " << myPlayer.type << "\n";
+    myPlayer.origin = setPlayerOrigin();
+    cout << "bonjour " << myPlayer.name << "\n";
     return 0;
 }
