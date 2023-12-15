@@ -6,6 +6,8 @@ struct player
 {
     int hp = 100;
     int xp = 0;
+    int level = 1;
+    int attack = 10;
     string name;
     string origin;
 };
@@ -20,5 +22,17 @@ int main()
     myPlayer.name = createPlayer();
     myPlayer.origin = setPlayerOrigin();
     cout << "bonjour " << myPlayer.name << "\n";
+
+    bool win = fight(myPlayer.hp, myPlayer.attack);
+    if (win)
+    {
+        myPlayer.xp += 10;
+        cout << "You gained 10 XP!" << endl;
+    }
+    else
+    {
+        cout << "You gained 5 XP!" << endl;
+        myPlayer.xp += 5;
+    }
     return 0;
 }
