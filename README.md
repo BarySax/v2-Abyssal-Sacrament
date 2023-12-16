@@ -8,7 +8,7 @@ Our two main inspiration for this project are DnD and Warhammer.
 all os with a bash command line
 ```bash
 chmod u+x tools/make-n-run.sh
-./tools/make-n-run
+./tools/make-n-run.sh
 ```
 
 # suported bash
