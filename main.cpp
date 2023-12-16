@@ -37,7 +37,7 @@ int main()
         cout << "1-aller collecter largent des gens du village\n";
         cout << "2-aller à la taverne pour boire un coup\n";
         cout << "3-effectuer une tache pour ton dieu\n";
-        cout << "5-aller te promener dans ton village\n";
+        cout << "4-aller te promener dans ton village\n";
         cout << "> ";
         cin >> choice;
 
@@ -67,6 +67,65 @@ int main()
                 myPlayer.xp += 5;
             }
         }
+        else if (choice == 2)
+        {
+            cout << "tu te dirige vers la taverne pour boire un coup\n";
+            cout << "tu arrive à la taverne\n";
+            cout << "tu entre dans la taverne\n";
+            cout << "tu te dirige vers le bar\n";
+            cout << "tu demande au barman: bonjour, je voudrais une bière\n";
+            cout << "le barman te répond: bonjour, voici votre bière\n";
+            cout << "tu prend la bière et tu la bois\n";
+            cout << "tu retourne chez toi\n";
+        }
+
+        else if (choice == 3)
+        {
+            cout << "tu te dirige vers l'église pour effectuer une tache pour ton dieu\n";
+            cout << "tu arrive à l'église\n";
+            cout << "tu entre dans l'église\n";
+            cout << "tu te dirige vers le prêtre\n";
+            cout << "tu demande au prêtre: bonjour, que puis-je faire pour vous\n";
+            cout << "le prêtre te répond: bonjour, je voudrais que tu aille chercher de l'eau bénite à la rivière\n";
+            cout << "tu répond: d'accord, je vais aller chercher de l'eau bénite à la rivière\n";
+            cout << "tu te dirige vers la rivière\n";
+            cout << "tu rencontre une creature diforme\n";
+            cout << "tu commence a te battre\n";
+            bool win = fight(myPlayer.hp, myPlayer.attack);
+            if (win)
+            {
+                myPlayer.xp += 10;
+                cout << "You gained 10 XP!" << endl;
+            }
+            else
+            {
+                cout << "You gained 5 XP!" << endl;
+                myPlayer.xp += 5;
+            }
+
+            cout << "tu arrive à la rivière\n";
+            cout << "tu prend de l'eau bénite\n";
+            cout << "tu retourne à l'église\n";
+            cout << "tu arrive à l'église\n";
+            cout << "tu donne l'eau bénite au prêtre\n";
+            cout << "le prêtre te remercie\n";
+            cout << "tu retourne chez toi\n";
+        }
+
+        else if (choice == 4)
+        {
+            cout << "tu te prommene dans ton village\n";
+            cout << "tu encourage les gens a travailler plus fort\n";
+            cout << "tu passe devant le marcher e tu demande au marchand combien il a fait\n";
+            cout << "le marchand te répond: j'ai fait 1000 pièces d'or\n";
+            cout << "tu lui répond: je vais prendre 500 pièces d'or\n";
+            cout << "le marchand te répond: d'accord\n";
+            myPlayer.argent_collecter += 500;
+        }
+        cout << "tu retourne chez toi\n";
+        cout << "tu te couche dans ton lit\n";
+        cout << "tu t'endors\n";
+
     }
     bool win = fight(myPlayer.hp, myPlayer.attack);
     if (win)
