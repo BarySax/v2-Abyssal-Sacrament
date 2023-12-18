@@ -8,7 +8,7 @@ struct Enemy {
     int defense;
 };
 
-bool fight(int playerHp, int attaque)
+int fight(int playerHp, int attaque)
 {
     Enemy enemy;
     enemy.health = 100;
@@ -48,11 +48,11 @@ bool fight(int playerHp, int attaque)
     if (playerHp > 0)
     {
         cout << "You win!" << endl;
-        return true;
+        return playerHp;
     }
     else
     {
         cout << "You lose!" << endl;
-        return false;
+        return 0;
     }
 }

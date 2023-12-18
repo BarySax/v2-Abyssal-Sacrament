@@ -17,6 +17,7 @@ struct player
     string origin;
 };
 
+string tache[6] = {"aller a la rivière chercher de l'eau pour l'apporter au pretre", "precher la sainte parole dans la rue", "acheter un employer", "eliminer un heritique", "chercher des nouveau compagnon"};            //TODO: add more tache
 
 void printName()
 {
@@ -63,8 +64,8 @@ int main()
                 cout << "tu commence a te battre\n";
                 cout << "tu retourne chez toi\n";
 
-                bool win = fight(myPlayer.hp, myPlayer.attack);
-                if (win)
+                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                if (myPlayer.hp > 0)
                 {
                     myPlayer.xp += 10;
                     cout << "You gained 10 XP!" << endl;
@@ -73,6 +74,7 @@ int main()
                 {
                     cout << "You gained 5 XP!" << endl;
                     myPlayer.xp += 5;
+                    return 0;
                 }
             }
             else if (choice == 2)
@@ -90,38 +92,21 @@ int main()
 
             else if (choice == 3)
             {
-                if (myPlayer.tache_effectuer == 0){
-                    cout << "tu te dirige vers l'église pour effectuer une tache pour ton dieu\n";
-                    cout << "tu arrive à l'église\n";
-                    cout << "tu entre dans l'église\n";
-                    cout << "tu te dirige vers le prêtre\n";
-                    cout << "tu demande au prêtre: bonjour, que puis-je faire pour vous\n";
-                    cout << "le prêtre te répond: bonjour, je voudrais que tu aille chercher de l'eau bénite à la rivière\n";
-                    cout << "tu répond: d'accord, je vais aller chercher de l'eau bénite à la rivière\n";
-                    cout << "tu te dirige vers la rivière\n";
-                    cout << "tu rencontre une creature diforme\n";
-                    cout << "tu commence a te battre\n";
-                    bool win = fight(myPlayer.hp, myPlayer.attack);
-                    if (win)
-                    {
-                        myPlayer.xp += 10;
-                        cout << "You gained 10 XP!" << endl;
-                    }
-                    else
-                    {
-                        cout << "You gained 5 XP!" << endl;
-                        myPlayer.xp += 5;
-                    }
-
-                    cout << "tu arrive à la rivière\n";
-                    cout << "tu prend de l'eau bénite\n";
-                    cout << "tu retourne à l'église\n";
-                    cout << "tu arrive à l'église\n";
-                    cout << "tu donne l'eau bénite au prêtre\n";
-                    cout << "le prêtre te remercie\n";
-                    cout << "tu retourne chez toi\n";
-                    myPlayer.tache_effectuer += 1;
+                cout << tache[myPlayer.tache_effectuer] << endl;
+                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                if (myPlayer.hp > 0)
+                {
+                    myPlayer.xp += 10;
+                    cout << "You gained 10 XP!" << endl;
                 }
+                else
+                {
+                    cout << "You gained 5 XP!" << endl;
+                    myPlayer.xp += 5;
+                    return 0;
+                }
+
+                myPlayer.tache_effectuer += 1;
             }
 
             else if (choice == 4)
@@ -141,7 +126,7 @@ int main()
 
         }
 
-        else if (myPlayer.origin == "Pieux")
+        if (myPlayer.origin == "Pieux")
         {
             cout << "que veut tu faire\n";
             cout << "1-aller prier\n";
@@ -149,7 +134,7 @@ int main()
             cout << "3-effectuer une tache pour ton dieu\n";
             cout << "4-aller te promener dans le village\n";
             cout << "5-aller à la rivière pour prier\n";
-            cout << "tuer un inclute\n";
+            cout << "6-tuer un inclute\n";
             cout << "> ";
             cin >> choice;
 
@@ -181,35 +166,27 @@ int main()
 
             else if (choice == 3)
             {
-                if (myPlayer.tache_effectuer == 0){
-                    cout << "tu te dirige vers l'église pour effectuer une tache pour ton dieu\n";
-                    cout << "tu arrive à l'église\n";
-                    cout << "tu entre dans l'église\n";
-                    cout << "tu te dirige vers le prêtre\n";
-                    cout << "tu demande au prêtre: bonjour, que puis-je faire pour vous\n";
-                    cout << "le prêtre te répond: bonjour, je voudrais que tu aille chercher de l'eau bénite à la rivière\n";
-                    cout << "tu répond: d'accord, je vais aller chercher de l'eau bénite à la rivière\n";
-                    cout << "tu te dirige vers la rivière\n";
-                    cout << "tu rencontre une creature diforme\n";
-                    cout << "tu commence a te battre\n";
-                    bool win = fight(myPlayer.hp, myPlayer.attack);
-                    if (win)
-                    {
-                        myPlayer.xp += 10;
-                        cout << "You gained 10 XP!" << endl;
-                    }
-                    else
-                    {
-                        cout << "You gained 5 XP!" << endl;
-                        myPlayer.xp += 5;
-                    }
+                cout << tache[myPlayer.tache_effectuer] << endl;
+                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                if (myPlayer.hp > 0)
+                {
+                    myPlayer.xp += 10;
+                    cout << "You gained 10 XP!" << endl;
                 }
+                else
+                {
+                    cout << "You gained 5 XP!" << endl;
+                    myPlayer.xp += 5;
+                    return 0;
+                }
+                
+
+                myPlayer.tache_effectuer += 1;
             }
         }
-        
         myPlayer.level = level_up(myPlayer.xp, myPlayer.level);
-
     }
+
     bool win = fight(myPlayer.hp, myPlayer.attack);
     if (win)
     {
