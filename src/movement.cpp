@@ -2,11 +2,15 @@
 
 using namespace std;
 
-string move(string enplacement){
+string move(){
     int choice;
-    cout << "Où voulez vous aller: ";
+    cout << "Où voulez vous aller: \n";
+    cout << "1-Church\n";
+    cout << "2-Bar\n";
+    cout << "3-Market\n";
+    cout << "4-Castle\n";
     cin >> choice;
-
+    string enplacement;
     switch (choice)
     {
         case 1:
