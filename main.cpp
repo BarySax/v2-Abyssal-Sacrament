@@ -10,9 +10,10 @@ struct player
     int xp = 0;
     int level = 1;
     int attack = 10;
-    int argent_collecter = 0;
-    int tache_effectuer = 0;
+    // int argent_collecter = 0;
+    // int tache_effectuer = 0;
     int faith = 100;
+    int attack_range = 1;
     string name;
     string origin;
 };
@@ -48,8 +49,9 @@ int main()
             cin >> choice;
 
             if (choice == 1){
-                cout << "Devant vous une gargouille";
-                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                cout << "Devant vous une gargouille\n";
+                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack, 10, 1);
+                //fight(int playerHp, int attack, int distance, int can_range)
             }
             // cout << "que veut tu faire\n";
             // cout << "1-aller collecter largent des gens du village\n";
@@ -196,7 +198,7 @@ int main()
         myPlayer.level = level_up(myPlayer.xp, myPlayer.level);
     }
 
-    bool win = fight(myPlayer.hp, myPlayer.attack);
+    bool win = fight(myPlayer.hp, myPlayer.attack, 10, 0);
     if (win)
     {
         myPlayer.xp += 10;
