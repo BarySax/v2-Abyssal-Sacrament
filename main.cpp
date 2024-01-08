@@ -15,6 +15,7 @@ struct player
     int faith = 100;
     string name;
     string origin;
+    string enplacement;
 };
 
 string tache[6] = {"aller a la rivière chercher de l'eau pour l'apporter au pretre", "precher la sainte parole dans la rue", "acheter un employer", "eliminer un heritique", "chercher des nouveau compagnon"};            //TODO: add more tache
