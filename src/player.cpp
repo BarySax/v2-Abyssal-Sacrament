@@ -33,3 +33,12 @@ string setPlayerOrigin() {
     }
     return origin;
 }
+
+int level_up(int xp, int level){
+    if (xp % 100 == 0){
+        level += 1;
+    }
+
+    
+    return level;
+}
