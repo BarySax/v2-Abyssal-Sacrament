@@ -104,8 +104,38 @@ int main()
                 default:
                     break;
             }
+        }else if (myPlayer.origin == "Pieux")
+        {
+            cout << "que veux tu faire ?:" << endl;
+            cout << "1-te deplacer\n";
+            cout << "2-tuer un heritique\n";
+            cout << "3-quiter la ville\n";
+            cout << ": ";
+            cin >> choice;
+            switch (choice)
+            {
+                case 1:
+                    myPlayer.enplacement = move();
+                    break;
+
+                case 2:
+                    myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                    if (myPlayer.hp <= 0)
+                    {
+                        cout << "Vous êtes mort" << endl;
+                        return 0;
+                    }
+                    break;
+                
+                case 3:
+                    cout << "Vous avez quitter la ville" << endl;
+                    return 0;
+                    break;
+                
+                default:
+                    break;
+            }
         }
-         
         myPlayer.level = level_up(myPlayer.xp, myPlayer.level);
     }
 
