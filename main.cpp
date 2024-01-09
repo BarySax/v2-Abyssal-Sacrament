@@ -50,7 +50,7 @@ int main()
 
             if (choice == 1){
                 cout << "Devant vous une gargouille\n";
-                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack, 10, 1);
+                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack, 10, 0);
                 //fight(int playerHp, int attack, int distance, int can_range)
             }
             // cout << "que veut tu faire\n";

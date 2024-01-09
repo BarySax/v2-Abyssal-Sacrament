@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <stdlib.h>
+#include <unistd.h>
 using namespace std;
 struct Enemy {
     int health;
@@ -19,6 +20,7 @@ int fight(int playerHp, int attack, int distance, int can_range)
     enemy.defense = 10;
     enemy.speed = 2;
     can_range = distance - 1;
+    system("clear");
     while (playerHp > 0 && enemy.health > 0)
     {
         cout << "\nInformation:" << endl;
@@ -28,30 +30,56 @@ int fight(int playerHp, int attack, int distance, int can_range)
         cout << "\nAction:" << endl;
         cout << "   1. Attack" << endl;
         cout << "   2. Move" << endl;
-        cout << "   3. Run Away(Surement a enlever ou a modif)" << endl;
-        cout << ">";
+        cout << "   3. `:`:`:`:`:`: " << endl;
+        cout << "> ";
         int choice;
         cin >> choice;
 
         if (choice == 1)
-        {
-            if (can_range <= 0)
+        {   
+            cout << "\nWeapon" << endl;
+            cout << "   1. Sword" << endl;
+            cout << "   2. Crossbow" << endl;
+            cout << "> ";
+            int choice;
+            cin >> choice;
+            if (choice == 1)
             {
-                int damage = rand() % 10 + 1;
-                cout << "You attack the enemy for " << attack + damage << " damage!" << endl;
-                enemy.health -= attack + damage;
-                
+                can_range = distance - 1;
+                if (can_range <= 0)
+                {
+                    int damage = rand() % 10 + 1;
+                    cout << "You attack the enemy for " << attack + damage << " damage!" << endl;
+                    enemy.health -= attack + damage;
+                    
+                }
+                else
+                {
+                    cout << "You attack nothing" << endl;   
+                }
             }
             else
             {
-                cout << "You attack nothing" << endl;   
+                can_range = distance - 10;
+                if (can_range <= 0)
+                {
+                    int damage = rand() % 5 + 1;
+                    cout << "You attack the enemy for " << attack - damage << " damage!" << endl;
+                    enemy.health -= attack - damage;
+                    
+                }
+                else
+                {
+                    cout << "You attack nothing" << endl;   
+                }
+
             }
         }
         else if (choice == 2)
         {
             cout << "\nMovement:" << endl;
             cout << "Back or Front" << endl;
-            cout << ">";
+            cout << "> ";
             int choice;
             cin >> choice;
 
@@ -63,7 +91,6 @@ int fight(int playerHp, int attack, int distance, int can_range)
             {
                 distance -= 2;
             }
-            can_range = distance - 1;
         }
         else if (choice == 3)
         {
@@ -74,10 +101,27 @@ int fight(int playerHp, int attack, int distance, int can_range)
         {
             cout << "Invalid choice!" << endl;
         }
+        if (playerHp <= 0 && enemy.health <= 0)
+        {
+            break;
+        }
+        sleep(2);
+        system("clear");
         cout << "Enemy's turn" << endl;
-        int damage = rand() % 10 + 1;
-        cout << "The enemy attacks you for " << damage << " damage!" << endl;
-        playerHp -= damage;
+        if (distance <= 0)
+        {
+            int damage = rand() % 10 + 1;
+            cout << "The enemy attacks you for " << damage << " damage!" << endl;
+            playerHp -= damage;
+        }
+        else
+        {
+            cout << "The enemy goes in your direction" << endl;
+            distance -= 2;
+        }
+        
+        sleep(2);
+        system("clear");
     }
 
     
@@ -85,6 +129,7 @@ int fight(int playerHp, int attack, int distance, int can_range)
     if (playerHp > 0)
     {
         cout << "You win!" << endl;
+     
         return playerHp;
     }
     else
