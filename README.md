@@ -2,9 +2,9 @@
 Abyssal Sacrament is an Dark Fantasy themed CI RPG, made in C++. 
 Our two main inspiration for this project are DnD and Warhammer.
 
-## to compile and run
+## To compile and run
 
-all os with a bash command line
+All os with a bash command line
 ```bash
 chmod u+x tools/make-n-run.sh
 ./tools/make-n-run.sh
