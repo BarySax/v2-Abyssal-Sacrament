@@ -120,7 +120,7 @@ int main()
                             break;
                             
                         case 2:
-                            cout << "D'accord, votre mission est de trouver un objet précieux pour le " << personage << "." << endl;
+                            cout << "D'accord, votre mission est de trouver un objet précieux pour le roi." << endl;
                             if (trouverObjet("un verre en or", myPlayer.hp, myPlayer.attack))
                             {
                                 cout << "Vous avez trouvé l'objet précieux !" << endl;
@@ -136,14 +136,14 @@ int main()
                             break;
                             
                         case 3:
-                            cout << "Entendu, vous devez récupérer des informations confidentielles pour le " << personage << "." << endl;
-                            // Ajoutez ici le code pour récupérer les informations confidentielles
+                            cout << "Entendu, vous devez récupérer des informations confidentielles pour le roi sur le marchand." << endl;
+                            espionnage();
+                            myPlayer.argent_collecter += 10;
+                            myPlayer.tache_effectuer += 1;
+                            myPlayer.xp += 10;
                             break;
                             
-                        case 4:
-                            cout << "Très bien, vous avez une mission secrète à accomplir pour le " << personage << "." << endl;
-                            // Ajoutez ici le code pour accomplir la mission secrète
-                            break;
+                        
                             
                         default:
                             cout << "Option invalide." << endl;
@@ -158,12 +158,37 @@ int main()
 
         } else if (myPlayer.origin == "Sans dessein")
         {
+            //le personage
+            string personage;
+
+            //les choix generique
             cout << "que veux tu faire ?:" << endl;
             cout << "1-te deplacer\n";
             cout << "2-tuer un heritique\n";
             cout << "3-quiter la ville\n";
-            cout << ": ";
-            cin >> choice;
+            
+            //choix costum avec enplacement
+            if (myPlayer.enplacement == "Churche")
+            {
+                cout << "4-aller voir le pretre\n";
+                personage = "pretre";
+            } else if (myPlayer.enplacement == "Bar")
+            {
+                cout << "4-aller voir le barman\n";
+                personage = "barman";
+            } else if (myPlayer.enplacement == "Market")
+            {
+                cout << "4-aller voir le marchand\n";
+                personage = "marchand";
+            } else if (myPlayer.enplacement == "Castle")
+            {
+                cout << "4-aller voir le roi\n";
+                personage = "roi";                
+            }
+
+            cout << "> ";
+            cin >> choice;    
+
             switch (choice)
             {
                 case 1:
@@ -183,18 +208,100 @@ int main()
                     cout << "Vous avez quitter la ville" << endl;
                     return 0;
                     break;
-                
+
+                case 4:
+                    int taskChoice;
+                    cout << "Vous avez choisi d'aller voir le " << personage << endl;
+                    cout << "Quelle tâche souhaitez-vous lui confier ?" << endl;
+                    cout << "1 - Livrer un message important" << endl;
+                    cout << "2 - Trouver un objet précieux" << endl;
+                    cout << "3 - Récupérer des informations confidentielles" << endl;
+                    cout << "4 - Accomplir une mission secrète" << endl;
+                    cout << "Choisissez une option : ";
+                    cin >> taskChoice;
+                    
+                    switch (taskChoice)
+                    {
+                        case 1:
+                            cout << "Très bien, vous devez livrer un message important au roi." << endl;
+                            if (livraison("chateau"))
+                            {
+                                cout << "Vous avez livré le message avec succès !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                                myPlayer.enplacement = "Castle";
+                            }
+
+                            break;
+                            
+                        case 2:
+                            cout << "D'accord, votre mission est de trouver un objet précieux pour le roi." << endl;
+                            if (trouverObjet("un verre en or", myPlayer.hp, myPlayer.attack))
+                            {
+                                cout << "Vous avez trouvé l'objet précieux !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                            }
+                            else
+                            {
+                                cout << "Vous etes mort" << endl;
+                                return -1;
+                            }
+                            break;
+                            
+                        case 3:
+                            cout << "Entendu, vous devez récupérer des informations confidentielles pour le roi sur le marchand." << endl;
+                            espionnage();
+                            myPlayer.argent_collecter += 10;
+                            myPlayer.tache_effectuer += 1;
+                            myPlayer.xp += 10;
+                            break;
+                            
+                        
+                            
+                        default:
+                            cout << "Option invalide." << endl;
+                            break;
+                    }
+                    break;
                 default:
                     break;
             }
-        }else if (myPlayer.origin == "Pieux")
+        } else if (myPlayer.origin == "Pieux")
         {
+            //le personage
+            string personage;
+
+            //les choix generique
             cout << "que veux tu faire ?:" << endl;
             cout << "1-te deplacer\n";
             cout << "2-tuer un heritique\n";
             cout << "3-quiter la ville\n";
-            cout << ": ";
+            
+            //choix costum avec enplacement
+            if (myPlayer.enplacement == "Churche")
+            {
+                cout << "4-aller voir le pretre\n";
+                personage = "pretre";
+            } else if (myPlayer.enplacement == "Bar")
+            {
+                cout << "4-aller voir le barman\n";
+                personage = "barman";
+            } else if (myPlayer.enplacement == "Market")
+            {
+                cout << "4-aller voir le marchand\n";
+                personage = "marchand";
+            } else if (myPlayer.enplacement == "Castle")
+            {
+                cout << "4-aller voir le roi\n";
+                personage = "roi";                
+            }
+
+            cout << "> ";
             cin >> choice;
+
             switch (choice)
             {
                 case 1:
@@ -213,6 +320,64 @@ int main()
                 case 3:
                     cout << "Vous avez quitter la ville" << endl;
                     return 0;
+                    break;
+
+                case 4:
+                    int taskChoice;
+                    cout << "Vous avez choisi d'aller voir le " << personage << endl;
+                    cout << "Quelle tâche souhaitez-vous lui confier ?" << endl;
+                    cout << "1 - Livrer un message important" << endl;
+                    cout << "2 - Trouver un objet précieux" << endl;
+                    cout << "3 - Récupérer des informations confidentielles" << endl;
+                    cout << "4 - Accomplir une mission secrète" << endl;
+                    cout << "Choisissez une option : ";
+                    cin >> taskChoice;
+                    
+                    switch (taskChoice)
+                    {
+                        case 1:
+                            cout << "Très bien, vous devez livrer un message important au roi." << endl;
+                            if (livraison("chateau"))
+                            {
+                                cout << "Vous avez livré le message avec succès !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                                myPlayer.enplacement = "Castle";
+                            }
+
+                            break;
+                            
+                        case 2:
+                            cout << "D'accord, votre mission est de trouver un objet précieux pour le roi." << endl;
+                            if (trouverObjet("un verre en or", myPlayer.hp, myPlayer.attack))
+                            {
+                                cout << "Vous avez trouvé l'objet précieux !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                            }
+                            else
+                            {
+                                cout << "Vous etes mort" << endl;
+                                return -1;
+                            }
+                            break;
+                            
+                        case 3:
+                            cout << "Entendu, vous devez récupérer des informations confidentielles pour le roi sur le marchand." << endl;
+                            espionnage();
+                            myPlayer.argent_collecter += 10;
+                            myPlayer.tache_effectuer += 1;
+                            myPlayer.xp += 10;
+                            break;
+                            
+                        
+                            
+                        default:
+                            cout << "Option invalide." << endl;
+                            break;
+                    }
                     break;
                 
                 default:
@@ -235,6 +400,3 @@ int main()
     }
     return 0;
 }
-    
-
-

@@ -36,3 +36,15 @@ bool trouverObjet(string objet, int playerHp, int attaque)
     }
 
 }
+
+bool espionnage()
+{
+    cout << "tu te mes en chemin pour aller espionner" << endl;
+    sleep(1);
+    cout << "tu arrive a destination" << endl;
+    sleep(1);
+    cout << "tu espionne" << endl;
+    sleep(1);
+    cout << "tu a fini d'espionner et tu rentre" << endl;
+    return true;
+}
