@@ -50,8 +50,8 @@ int main()
 
             if (choice == 1){
                 cout << "Devant vous une gargouille\n";
-                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack, 10, 0);
-                //fight(int playerHp, int attack, int distance, int can_range)
+                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack, 10, 0, 3);
+                //fight(int playerHp, int attack, int distance, int can_range, num_potion)
             }
             // cout << "que veut tu faire\n";
             // cout << "1-aller collecter largent des gens du village\n";
@@ -198,7 +198,7 @@ int main()
         myPlayer.level = level_up(myPlayer.xp, myPlayer.level);
     }
 
-    bool win = fight(myPlayer.hp, myPlayer.attack, 10, 0);
+    bool win = fight(myPlayer.hp, myPlayer.attack, 10, 0,3);
     if (win)
     {
         myPlayer.xp += 10;

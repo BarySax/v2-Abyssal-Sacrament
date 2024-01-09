@@ -10,7 +10,7 @@ struct Enemy {
     int speed;
 };
 
-int fight(int playerHp, int attack, int distance, int can_range)
+int fight(int playerHp, int attack, int distance, int can_range, int num_heal)
 {
 
     Enemy enemy;
@@ -27,10 +27,12 @@ int fight(int playerHp, int attack, int distance, int can_range)
         cout << "   Player HP: " << playerHp << endl;
         cout << "   Enemy HP: " << enemy.health << endl;
         cout << "   Distance: " << distance << endl;
+        cout << "   Number of potion left: " << num_heal << endl;
         cout << "\nAction:" << endl;
         cout << "   1. Attack" << endl;
         cout << "   2. Move" << endl;
-        cout << "   3. `:`:`:`:`:`: " << endl;
+        cout << "   3. Heal" << endl;
+        cout << "   4. Leave " << endl;
         cout << "> ";
         int choice;
         cin >> choice;
@@ -94,8 +96,25 @@ int fight(int playerHp, int attack, int distance, int can_range)
         }
         else if (choice == 3)
         {
+            if (num_heal >= 1)
+            {
+                cout << "You take a potion" << endl;
+                num_heal -= 1;
+                playerHp += 10;
+            }
+            else
+            {
+                cout << "You shearch in you bag but you find nothing" << endl;
+            }
+        }
+        else if (choice == 4)
+        {
             cout << "You run away!" << endl;
             return false;
+        }
+        else if (choice == 5)
+        {
+            playerHp = 0;
         }
         else
         {
@@ -134,7 +153,11 @@ int fight(int playerHp, int attack, int distance, int can_range)
     }
     else
     {
-        cout << "You lose!" << endl;
-        return 0;
+        cout << "SHLAAAK" << endl;
+        sleep(4);
+        cout << "That was the last sound you heard, before your body touched the ground" << endl;
+        cout << "Mortal, you're dead..." << endl;
+        sleep(4);
+        return -1;
     }
 }
