@@ -47,6 +47,7 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_heal)
             cin >> choice;
             if (choice == 1)
             {
+                
                 can_range = distance - 1;
                 if (can_range <= 0)
                 {
@@ -120,11 +121,11 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_heal)
         {
             cout << "Invalid choice!" << endl;
         }
-        if (playerHp <= 0 && enemy.health <= 0)
+        if (playerHp <= 0 || enemy.health <= 0)
         {
             break;
         }
-        sleep(2);
+        sleep(1.5);
         system("clear");
         cout << "Enemy's turn" << endl;
         if (distance <= 0)
@@ -139,7 +140,7 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_heal)
             distance -= 2;
         }
         
-        sleep(2);
+        sleep(1.5);
         system("clear");
     }
 
@@ -154,10 +155,10 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_heal)
     else
     {
         cout << "SHLAAAK" << endl;
-        sleep(4);
+        sleep(1);
         cout << "That was the last sound you heard, before your body touched the ground" << endl;
         cout << "Mortal, you're dead..." << endl;
         sleep(4);
-        return -1;
+        exit(0);
     }
 }
