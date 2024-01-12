@@ -33,9 +33,10 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
             cout << "   Number of potion left: " << num_heal << endl;
             cout << "\nAction:" << endl;
             cout << "   1. Attack" << endl;
-            cout << "   2. Move" << endl;
-            cout << "   3. Heal" << endl;
-            cout << "   4. Leave " << endl;
+            cout << "   2. Spell" << endl;
+            cout << "   3. Move" << endl;
+            cout << "   4. Heal" << endl;
+            cout << "   5. Leave " << endl;
             cout << "> ";
             int choice;
             cin >> choice;
@@ -82,6 +83,12 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
             }
             else if (choice == 2)
             {
+                cout << "\nSpell" << endl;
+                cout << "   1. Holy wound" << endl;
+                cout << "   2. Holy life"
+            }
+            else if (choice == 3)
+            {
                 cout << "\nMovement:" << endl;
                 cout << "Back or Front" << endl;
                 cout << "> ";
@@ -97,7 +104,7 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
                     distance -= 2;
                 }
             }
-            else if (choice == 3)
+            else if (choice == 4)
             {
                 if (num_heal >= 1)
                 {
@@ -110,12 +117,12 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
                     cout << "You shearch in you bag but you find nothing" << endl;
                 }
             }
-            else if (choice == 4)
+            else if (choice == 5)
             {
                 cout << "You run away!" << endl;
                 return false;
             }
-            else if (choice == 5)
+            else if (choice == 6)
             {
                 playerHp = 0;
             }
