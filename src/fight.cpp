@@ -8,35 +8,22 @@ struct Enemy {
     int attack_range;
     int defense;
     int speed;
-    int consciousness;
 };
 
-int fight(int playerHp, int player_consciousness, int attack, int distance, int can_range, int num_attack, int num_heal)
+int fight(int playerHp, int attack, int distance, int can_range, int num_attack, int num_heal)
 {
 
     Enemy enemy;
     enemy.health = 100;
-    enemy.consciousness = 50;
     enemy.attack = 15;
     enemy.attack_range = 1;
     enemy.defense = 10;
     enemy.speed = 2;
     can_range = distance - 1;
-    system("clear");
-    int add_consciousness = rand() % 10 + 1;
-    player_consciousness += add_consciousness;
-    add_consciousness = rand() % 10 + 1;
-    enemy.consciousness += add_consciousness;
-    
     while (playerHp > 0 && enemy.health > 0)
     {
         while (num_attack > 0)
         {
-            if (player_consciousness < enemy.consciousness)
-            {
-                player_consciousness = 100;
-                break;
-            }
             cout << "\nInformation:" << endl;
             cout << "   Player HP: " << playerHp << endl;
             cout << "   Enemy HP: " << enemy.health << endl;
