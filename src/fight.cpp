@@ -22,8 +22,10 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
     can_range = distance - 1;
     while (playerHp > 0 && enemy.health > 0)
     {
+        sleep(1.5);
         while (num_attack > 0)
         {
+            system("clear");
             cout << "\nInformation:" << endl;
             cout << "   Player HP: " << playerHp << endl;
             cout << "   Enemy HP: " << enemy.health << endl;
@@ -143,7 +145,6 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
         }
 
         sleep(1.5);
-        system("clear");
         num_attack = 2;
     }
 
