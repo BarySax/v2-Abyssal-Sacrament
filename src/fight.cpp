@@ -30,6 +30,7 @@ int fight(int playerHp, int str_attack, int faith_attack, int distance, int can_
             cout << "\n\n   Player HP: " << playerHp << endl;
             cout << "   Enemy HP: " << enemy.health << endl;
             cout << "   Distance: " << distance << endl;
+            cout << "   Number of attack left: " << num_attack << endl;
             cout << "   Number of potion left: " << num_heal << endl;
             cout << "\n--------------------------------\n" << endl;
             cout << "   1. Attack" << endl;
@@ -130,7 +131,7 @@ int fight(int playerHp, int str_attack, int faith_attack, int distance, int can_
                 }
                 else
                 {
-                    cout << "You shearch in you bag but you find nothing" << endl;
+                    cout << "You search in you bag but you find nothing" << endl;
                 }
             }
             else if (choice == 5)
@@ -144,6 +145,7 @@ int fight(int playerHp, int str_attack, int faith_attack, int distance, int can_
             }
             else
             {
+                num_attack += 1;
                 cout << "Invalid choice!" << endl;
             }
             if (playerHp <= 0 || enemy.health <= 0)
