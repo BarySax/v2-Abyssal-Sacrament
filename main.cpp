@@ -9,10 +9,10 @@ struct player
     int hp = 100;
     int xp = 0;
     int level = 1;
-    int attack = 10;
+    int strenght = 10;
     // int argent_collecter = 0;
     // int tache_effectuer = 0;
-    int faith = 100;
+    int faith = 10;
     int attack_range = 1;
     string name;
     string origin;
@@ -34,170 +34,11 @@ int main()
     player myPlayer;
     myPlayer.name = createPlayer();
     myPlayer.origin = setPlayerOrigin();
-    int choice = 0;
-    cout << "Bonjour " << myPlayer.name << "\n";
-    //cout << "Pendant la nuit, tu senti une entité te soulever de ton lit pour te parler. C’était ton dieu qui voulait te parler, il te dit que tu vas devoir effectuer des taches pour avoir son pardon sinon à ta mort tu vas finir dans les abysses sacramental.\n\ntu tombes pendant quelque minute.\n\ncette troublante nuit de sommeil, tu te réveil pour commencer ta journée.\n\nTu te lève de ton lit et tu te dirige vers la salle de bain pour te laver et te préparer pour la journée qui t’attend." << endl;
+    //int choice = 0;
+    cout << "Hello " << myPlayer.name << "\n";
+    myPlayer.hp = fight(myPlayer.hp, myPlayer.strenght, myPlayer.faith, 10, myPlayer.attack_range, 2, 3);
     
-
-    while (true)
-    {
-        if (myPlayer.origin == "Noble"){
-            cout << "Depuis votre tendre enfance, vous les avez passé à courir dans les jardins de la citadelle, Flamunzuke, la demeure familliale\n";
-            cout << "C'était un soir humide , vous aviez atteint la syphilis\n";
-            cout << "Un orage se preparais, c'etait evident, cela vous causa l'obligation de rester au chaud\n";
-            cout << "Vous decidez de quitter votre chambre, esseyant de trouver une distraction, devant vous un couloir est  divise en deux\n\nOu allez-vous:\n 1-A droite\n 2-A gauche\n\n >";
-            cin >> choice;
-
-            if (choice == 1){
-                cout << "Devant vous une gargouille\n";
-                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack, 10, myPlayer.attack_range, 2, 3);
-            }
-            // cout << "que veut tu faire\n";
-            // cout << "1-aller collecter largent des gens du village\n";
-            // cout << "2-aller à la taverne pour boire un coup\n";
-            // cout << "3-effectuer une tache pour ton dieu\n";
-            // cout << "4-aller te promener dans ton village\n";
-            // cout << "> ";
-            // cin >> choice;
-
-            // if (choice == 1){
-            //     cout << "tu te dirige vers la maison de ton voisin pour collecter l'argent qu'il te doit\n";
-            //     cout << "tu arrive devant la porte de ton voisin, tu frappe à la porte\n";
-            //     cout << "ton voisin ouvre la porte et te dit: bonjour " << myPlayer.name << " que me vaut l'honneur de ta visite\n";
-            //     cout << "tu lui répond: bonjour je suis venu pour collecter l'argent que tu me doit\n";
-            //     cout << "ton voisin te répond: je n'ai pas d'argent pour toi\n";
-            //     cout << "tu lui répond: je ne suis pas venu pour rien, je vais devoir te tuer\n";
-            //     cout << "ton voisin te répond: je ne vais pas me laisser faire\n";
-            //     cout << "tu lui répond: tu n'as pas le choix\n";
-            //     cout << "ton voisin te répond: je vais te tuer\n";
-            //     cout << "tu lui répond: tu n'as pas le choix\n";
-            //     cout << "tu commence a te battre\n";
-            //     cout << "tu retourne chez toi\n";
-
-            //     myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
-            //     if (myPlayer.hp > 0)
-            //     {
-            //         myPlayer.xp += 10;
-            //         cout << "You gained 10 XP!" << endl;
-            //     }
-            //     else
-            //     {
-            //         cout << "You gained 5 XP!" << endl;
-            //         myPlayer.xp += 5;
-            //         return 0;
-            //     }
-            // }
-            // else if (choice == 2)
-            // {
-            //     cout << "tu te dirige vers la taverne pour boire un coup\n";
-            //     cout << "tu arrive à la taverne\n";
-            //     cout << "tu entre dans la taverne\n";
-            //     cout << "tu te dirige vers le bar\n";
-            //     cout << "tu demande au barman: bonjour, je voudrais une bière\n";
-            //     cout << "le barman te répond: bonjour, voici votre bière\n";
-            //     cout << "tu prend la bière et tu la bois et tu gagne 15hp\n";
-            //     cout << "tu retourne chez toi\n";
-            //     myPlayer.hp += 15;
-            // }
-
-            // else if (choice == 3)
-            // {
-            //     cout << tache[myPlayer.tache_effectuer] << endl;
-            //     myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
-            //     if (myPlayer.hp > 0)
-            //     {
-            //         myPlayer.xp += 10;
-            //         cout << "You gained 10 XP!" << endl;
-            //     }
-            //     else
-            //     {
-            //         cout << "You gained 5 XP!" << endl;
-            //         myPlayer.xp += 5;
-            //         return 0;
-            //     }
-
-            //     myPlayer.tache_effectuer += 1;
-            // }
-
-            // else if (choice == 4)
-            // {
-            //     cout << "tu te prommene dans ton village\n";
-            //     cout << "tu encourage les gens a travailler plus fort\n";
-            //     cout << "tu passe devant le marcher e tu demande au marchand combien il a fait\n";
-            //     cout << "le marchand te répond: j'ai fait 1000 pièces d'or\n";
-            //     cout << "tu lui répond: je vais prendre 500 pièces d'or\n";
-            //     cout << "le marchand te répond: d'accord\n";
-            //     myPlayer.argent_collecter += 500;
-            // }
-            // cout << "tu retourne chez toi\n";
-            // cout << "tu te couche dans ton lit\n";
-            // cout << "tu t'endors\n";
-            // day_last += 1;
-
-        }
-
-        if (myPlayer.origin == "Pieux")
-        {
-            // cout << "que veut tu faire\n";
-            // cout << "1-aller prier\n";
-            // cout << "2-aller à la taverne pour boire un coup\n";
-            // cout << "3-effectuer une tache pour ton dieu\n";
-            // cout << "4-aller te promener dans le village\n";
-            // cout << "5-aller à la rivière pour prier\n";
-            // cout << "6-tuer un inclute\n";
-            // cout << "> ";
-            // cin >> choice;
-
-            // if (choice == 1)
-            // {
-            //     cout << "tu te dirige vers l'église pour prier\n";
-            //     cout << "tu arrive à l'église\n";
-            //     cout << "tu entre dans l'église\n";
-            //     cout << "tu te dirige vers le prêtre\n";
-            //     cout << "tu demande au prêtre: bonjour, je voudrais prier\n";
-            //     cout << "le prêtre te répond: bonjour, tu peux aller prier\n";
-            //     cout << "tu te dirige vers le banc pour prier\n";
-            //     cout << "tu prie\n";
-            //     cout << "tu retourne chez toi\n";
-            // }
-
-            // else if (choice == 2)
-            // {
-            //     cout << "tu te dirige vers la taverne pour boire un coup\n";
-            //     cout << "tu arrive à la taverne\n";
-            //     cout << "tu entre dans la taverne\n";
-            //     cout << "tu te dirige vers le bar\n";
-            //     cout << "tu demande au barman: bonjour, je voudrais une bière\n";
-            //     cout << "le barman te répond: bonjour, voici votre bière\n";
-            //     cout << "tu prend la bière et tu la bois et tu gagne 15hp\n";
-            //     cout << "tu retourne chez toi\n";
-            //     myPlayer.hp += 15;
-            // }
-
-            // else if (choice == 3)
-            // {
-            //     cout << tache[myPlayer.tache_effectuer] << endl;
-            //     myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
-            //     if (myPlayer.hp > 0)
-            //     {
-            //         myPlayer.xp += 10;
-            //         cout << "You gained 10 XP!" << endl;
-            //     }
-            //     else
-            //     {
-            //         cout << "You gained 5 XP!" << endl;
-            //         myPlayer.xp += 5;
-            //         return 0;
-            //     }
-                
-
-            //     myPlayer.tache_effectuer += 1;
-            // }
-        }
-        myPlayer.level = level_up(myPlayer.xp, myPlayer.level);
-    }
-
-    bool win = fight(myPlayer.hp, myPlayer.attack, 10,2,0,3);
+    bool win = fight(myPlayer.hp, myPlayer.strenght, myPlayer.faith, 10,2,0,3);
     if (win)
     {
         myPlayer.xp += 10;

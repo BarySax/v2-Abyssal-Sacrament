@@ -10,7 +10,7 @@ struct Enemy {
     int speed;
 };
 
-int fight(int playerHp, int attack, int distance, int can_range, int num_attack, int num_heal)
+int fight(int playerHp, int str_attack, int faith_attack, int distance, int can_range, int num_attack, int num_heal)
 {
 
     Enemy enemy;
@@ -20,18 +20,18 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
     enemy.defense = 10;
     enemy.speed = 2;
     can_range = distance - 1;
+    int damage = 0;
     while (playerHp > 0 && enemy.health > 0)
     {
         sleep(1.5);
         while (num_attack > 0)
         {
             system("clear");
-            cout << "\nInformation:" << endl;
-            cout << "   Player HP: " << playerHp << endl;
+            cout << "\n\n   Player HP: " << playerHp << endl;
             cout << "   Enemy HP: " << enemy.health << endl;
             cout << "   Distance: " << distance << endl;
             cout << "   Number of potion left: " << num_heal << endl;
-            cout << "\nAction:" << endl;
+            cout << "\n--------------------------------\n" << endl;
             cout << "   1. Attack" << endl;
             cout << "   2. Spell" << endl;
             cout << "   3. Move" << endl;
@@ -43,9 +43,9 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
 
             if (choice == 1)
             {   
-                cout << "\nWeapon" << endl;
-                cout << "   1. Sword" << endl;
-                cout << "   2. Crossbow" << endl;
+                cout << "\n Weapon" << endl;
+                cout << "     1. Sword" << endl;
+                cout << "     2. Crossbow" << endl;
                 cout << "> ";
                 int choice;
                 cin >> choice;
@@ -54,9 +54,9 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
                     can_range = distance - 1;
                     if (can_range <= 0)
                     {
-                        int damage = rand() % 10 + 1;
-                        cout << "You attack the enemy for " << attack + damage << " damage!" << endl;
-                        enemy.health -= attack + damage;
+                        damage = rand() % 10 + 1;
+                        cout << "You attack the enemy for " << str_attack + damage << " damage!" << endl;
+                        enemy.health -= str_attack + damage;
                         
                     }
                     else
@@ -69,9 +69,9 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
                     can_range = distance - 10;
                     if (can_range <= 0)
                     {
-                        int damage = rand() % 5 + 1;
-                        cout << "You attack the enemy for " << attack - damage << " damage!" << endl;
-                        enemy.health -= attack - damage;
+                          
+                        cout << "You attack the enemy for " << str_attack - damage << " damage!" << endl;
+                        enemy.health -= str_attack - damage;
                         
                     }
                     else
@@ -83,14 +83,30 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
             }
             else if (choice == 2)
             {
-                cout << "\nSpell" << endl;
-                cout << "   1. Holy wound" << endl;
-                cout << "   2. Holy life"
+                cout << "\n Spell:" << endl;
+                cout << "     1. Holy wound" << endl;
+                cout << "     2. Holy life" << endl;
+                cout << "> ";
+                int choice;
+                cin >> choice;
+                if (choice == 1)
+                {
+                    damage = rand() % 10 + 1;
+                    cout << "You attack the enemy for " << faith_attack + damage << " damage!" << endl;
+                    enemy.health -= faith_attack + damage;
+
+                }
+                else if (choice == 2)
+                {
+                    cout << "You heal yourself" << endl;
+                    playerHp += 10;
+                }
             }
             else if (choice == 3)
             {
-                cout << "\nMovement:" << endl;
-                cout << "Back or Front" << endl;
+                cout << "\n Movement:" << endl;
+                cout << "     1.Front" << endl;
+                cout << "     2.Back" << endl;
                 cout << "> ";
                 int choice;
                 cin >> choice;
@@ -141,7 +157,7 @@ int fight(int playerHp, int attack, int distance, int can_range, int num_attack,
         cout << "Enemy's turn" << endl;
         if (distance <= 0)
         {
-            int damage = rand() % 10 + 1;
+            damage = rand() % 10 + 1;
             cout << "The enemy attacks you for " << damage << " damage!" << endl;
             playerHp -= damage;
         }
