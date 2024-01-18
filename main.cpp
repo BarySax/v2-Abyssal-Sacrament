@@ -10,15 +10,13 @@ struct player
     int xp = 0;
     int level = 1;
     int strenght = 10;
-    // int argent_collecter = 0;
-    // int tache_effectuer = 0;
+    int dexterity = 50;
     int faith = 10;
     int attack_range = 1;
     string name;
     string origin;
 };
 
-string tache[6] = {"aller a la rivière chercher de l'eau pour l'apporter au pretre", "precher la sainte parole dans la rue", "acheter un employer", "eliminer un heritique", "chercher des nouveau compagnon"};            //TODO: add more tache
 
 void printName()
 {
@@ -36,9 +34,9 @@ int main()
     myPlayer.origin = setPlayerOrigin();
     //int choice = 0;
     cout << "Hello " << myPlayer.name << "\n";
-    myPlayer.hp = fight(myPlayer.hp, myPlayer.strenght, myPlayer.faith, 10, myPlayer.attack_range, 2, 3);
+    myPlayer.hp = fight(myPlayer.hp, myPlayer.dexterity, myPlayer.strenght, myPlayer.faith, 10, myPlayer.attack_range, 2, 3);
     
-    bool win = fight(myPlayer.hp, myPlayer.strenght, myPlayer.faith, 10,2,0,3);
+    bool win = fight(myPlayer.hp, myPlayer.dexterity, myPlayer.strenght, myPlayer.faith, 10, myPlayer.attack_range, 2, 3);
     if (win)
     {
         myPlayer.xp += 10;
