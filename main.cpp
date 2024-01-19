@@ -10,7 +10,7 @@ struct player
     int xp = 0;
     int level = 1;
     int strenght = 10;
-    int dexterity = 50;
+    int dexterity = 70;
     int faith = 10;
     int attack_range = 1;
     string name;
@@ -34,9 +34,9 @@ int main()
     myPlayer.origin = setPlayerOrigin();
     //int choice = 0;
     cout << "Hello " << myPlayer.name << "\n";
-    myPlayer.hp = fight(myPlayer.hp, myPlayer.dexterity, myPlayer.strenght, myPlayer.faith, 10, myPlayer.attack_range, 2, 3);
+    myPlayer.hp = fight(myPlayer.hp, myPlayer.dexterity, myPlayer.strenght, myPlayer.faith, 2 , myPlayer.attack_range, 2, 3);
     
-    bool win = fight(myPlayer.hp, myPlayer.dexterity, myPlayer.strenght, myPlayer.faith, 10, myPlayer.attack_range, 2, 3);
+    bool win = fight(myPlayer.hp, myPlayer.dexterity, myPlayer.strenght, myPlayer.faith, 2, myPlayer.attack_range, 2, 3);
     if (win)
     {
         myPlayer.xp += 10;

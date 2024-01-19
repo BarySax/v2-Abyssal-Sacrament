@@ -22,6 +22,7 @@ int fight(int playerHp, int player_dext, int str_attack, int faith_attack, int d
     can_range = distance - 1;
     int try_attack = 0;
     int damage = 0;
+    int re_attack = num_attack;
     while (playerHp > 0 && enemy.health > 0)
     {
         sleep(1.5);
@@ -81,7 +82,7 @@ int fight(int playerHp, int player_dext, int str_attack, int faith_attack, int d
                     if (can_range <= 0)
                     {
                         try_attack = rand() % 100 + 1;
-                        if (try_attack <= player_dext + 10)
+                        if (try_attack <= player_dext +  20)
                         {
                             damage = rand() % 5 + 1;
                             cout << "You attack the enemy for " << str_attack - damage << " damage!" << endl;
@@ -110,9 +111,17 @@ int fight(int playerHp, int player_dext, int str_attack, int faith_attack, int d
                 cin >> choice;
                 if (choice == 1)
                 {
-                    damage = rand() % 10 + 1;
-                    cout << "You attack the enemy for " << faith_attack + damage << " damage!" << endl;
-                    enemy.health -= faith_attack + damage;
+                    try_attack = rand() % 100 + 1;
+                    if (try_attack <= 70)
+                    {
+                        damage = rand() % 10 + 1;
+                        cout << "You attack the enemy for " << faith_attack + damage << " damage!" << endl;
+                        enemy.health -= faith_attack + damage;
+                    }
+                    else
+                    {
+                        cout << "You miss" << endl; 
+                    }
 
                 }
                 else if (choice == 2)
@@ -167,13 +176,13 @@ int fight(int playerHp, int player_dext, int str_attack, int faith_attack, int d
                 num_attack += 1;
                 cout << "Invalid choice!" << endl;
             }
-            if (playerHp <= 0 || enemy.health <= 0)
-            {
-                break;
-            }
             num_attack -= 1;
             sleep(1.5);
             system("clear");
+        }
+        if (playerHp <= 0 || enemy.health <= 0)
+        {
+            break;
         }
         cout << "Enemy's turn" << endl;
         if (distance <= 0)
@@ -189,7 +198,7 @@ int fight(int playerHp, int player_dext, int str_attack, int faith_attack, int d
         }
 
         sleep(1.5);
-        num_attack = 2;
+        num_attack = re_attack;
     }
 
     
